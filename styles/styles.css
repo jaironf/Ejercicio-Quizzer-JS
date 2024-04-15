@@ -2,3 +2,14 @@ img{
     display: flex;
     margin-left: 20rem;
 }
+
+.buttons{
+    background-color: white;
+    border: 2px solid #04AA6D;
+    display: inline;
+    width: 20%;
+    margin: 1em auto;
+    height: 2em;
+    font-size: 1.1rem;
+    border-radius: 15px;
+}
