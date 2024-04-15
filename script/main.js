@@ -5,7 +5,8 @@ const questionDiv = document.getElementById('questions-Div')
 const homeNavBtn = document.getElementById('home');
 const gameNavBtn = document.getElementById('game');
 const statsNavBtn = document.getElementById('stats');
-
+const homeDiv = document.getElementById('home-div');
+const statsDIv = document.getElementById('stats-div')
 // console.log(homeNavBtn, gameNavBtn, statsNavBtn);
 
 
@@ -18,10 +19,11 @@ const printQuestions = (getQuestions) => {
 
     questionDiv.innerHTML = `
     <div class="card-header">Question: </div>
-    <div class="card-body">
+    <div class="card-body d-flex flex-wrap">
       <p class="card-text">${getQuestions[currentQuestionIndex].question}</p>`
 
-    let correctButton = document.createElement("button")
+    let correctButton = document.createElement('button')
+    // correctButton.setAttribute('class', 'btn btn-light d-flex btn-sm')
     correctButton.textContent = getQuestions[currentQuestionIndex].correct_answer
     console.log(correctButton);
     
