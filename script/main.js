@@ -2,12 +2,12 @@ console.log('hola caracola');
 
 const API_URL = 'https://opentdb.com/api.php?amount=10&category=15&difficulty=easy';
 const questionDiv = document.getElementById('questions-Div')
-const homeNavBtn = document.getElementById('home');
-const gameNavBtn = document.getElementById('game');
+const StartGameNavBar = document.getElementById('start-game');
+const resultsNavBar = document.getElementById('results');
 const statsNavBtn = document.getElementById('stats');
 const homeDiv = document.getElementById('home-div');
 const statsDIv = document.getElementById('stats-div')
-// console.log(homeNavBtn, gameNavBtn, statsNavBtn);
+// console.log(StartGameNavBar, resultsNavBar, statsNavBtn);
 
 
 let currentQuestionIndex = 0;
@@ -27,16 +27,17 @@ const printQuestions = (getQuestions) => {
  
   for (let i = 0; i < answersRandom.length; i++) {
     console.log(answersRandom);
-    
-    let incorrectButton = document.createElement("button")
-    incorrectButton.textContent = answersRandom[i]
+
+    let button = document.createElement("button")
+    button.textContent = answersRandom[i]
 
     if (answersRandom[i].correct == true) {
       console.log(answersRandom[i].text);
-      incorrectButton.textContent = answersRandom[i].text
+      button.textContent = answersRandom[i].text
+      button.dataset.correct = true
     }
     console.log(answersRandom[i].text);
-    questionDiv.appendChild(incorrectButton)
+    questionDiv.appendChild(button)
   }
 };
 const getRandomPosition = (randomOptions) => {
@@ -46,9 +47,10 @@ const getRandomPosition = (randomOptions) => {
 
 
 
+
 const getQuestions = async () => {
 
-  let response = await axios.get(API_URL);
+  // let response = await axios.get(API_URL);
   // let questionsArr = response.data.results
   let questionsArr = [
     {
@@ -179,4 +181,29 @@ const getQuestions = async () => {
 getQuestions();
 
 
-gameNavBtn.addEventListener('click', getQuestions)
+
+
+//PARTE SPA
+
+
+const hideViews = () => {
+  resultsNavBar.classList.add('d-none');
+  statsNavBtn.classList.add('d-none');
+  questionDiv.classList.add('d-none');
+}
+
+const showHome = () => {
+  hideViews()
+  StartGameNavBar.classList.remove('d-none')
+  resultsNavBar.classList.remove('d-none')
+}
+
+const showQuestions = ()=>{
+  hideViews()
+  resultsNavBar.classList.remove('d-none')
+  questionDiv.classList.remove('d-none')
+  homeDiv.classList.add('d-none')
+}
+
+StartGameNavBar.addEventListener('click', showQuestions)
+resultsNavBar.addEventListener('click', getQuestions)

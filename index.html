@@ -20,20 +20,20 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="home">Home
+                        <a class="nav-link" href="#" id="start-game">Start Game
                             <span class="visually-hidden">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="game">Game</a>
+                        <a class="nav-link d-none" href="#" id="results">Results</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="stats">Stats</a>
+                        <a class="nav-link d-none" href="#" id="stats">Stats</a>
                     </li>
             </div>
     </nav>
-    <div id="home-div"></div>
-    <div class="card border-primary m-5 justify-content-center d-flex flex-wrap"
+    <div class="" id="home-div"><img src="./assets/logo quizzer.png" alt="logo quizzer" class=""></div>
+    <div class="card border-primary m-5 justify-content-center d-flex flex-wrap d-none"
         style="max-width: 50rem; height: 300px;" id="questions-Div">
         <div class="card-header">Question: </div>
         <div class="card-body d-flex flex-wrap" id="body-card">
@@ -43,11 +43,10 @@
         </div>
     </div>
     <div class="d-none" id="stats-div">Stats</div>
-    <!-- <img src="./assets/logo quizzer.png" alt="logo quizzer" class=""> -->
+    
 
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="./script/question.js"></script>
     <script src="./script/main.js"></script>
 </body>
 
