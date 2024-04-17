@@ -15,3 +15,11 @@ img{
     font-size: 1.1rem;
     border-radius: 15px;
 }
+.correct {
+    background-color: #04AA6D;
+}
+
+.wrong{
+    background-color: red;
+}
+
