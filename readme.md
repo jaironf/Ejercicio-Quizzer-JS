@@ -22,6 +22,11 @@ Quizzer es una aplicación web de preguntas y respuestas que te permite poner a 
 
 ¡Diviértete y disfruta poniendo a prueba tus conocimientos con Quizzer!
 
+## Screenshots:
+![Imagen de la portada del juego](./assets/img/ScreenShot%20inicio.png)
+![Imagen de las preguntas](./assets/img/ScreenShot%20preguntas.png)
+![Imagen de las puntuaciones](./assets/img/ScreenShot%20puntuacion.png)
+
 ## Autor:
 
 - Nombre: [Jairo Núñez]

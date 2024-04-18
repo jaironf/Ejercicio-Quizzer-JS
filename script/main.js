@@ -1,5 +1,3 @@
-console.log('hola caracola');
-
 const API_URL = 'https://opentdb.com/api.php?amount=10&category=15&difficulty=easy';
 const questionDiv = document.getElementById('questions-Div')
 const StartGameNavBar = document.getElementById('start-game');
@@ -12,8 +10,9 @@ const cardText = document.querySelector('.card-text');
 const nextBnt = document.getElementById('next-button');
 const resultsGame = document.getElementById('results_container');
 const scoreBtn = document.getElementById('results_button');
-const restartGame = document.getElementById('restart_game')
-console.log();
+const restartGame = document.getElementById('restart_game');
+const scoreImg = document.getElementById('score-img');
+
 
 let currentQuestionIndex = 0;
 let questionsArr = [];
@@ -146,7 +145,6 @@ const getQuestions = async () => {
       ]
     }
   ]
-  // printQuestions(questionsArr)
 
 };
 
@@ -166,21 +164,20 @@ cardText.classList.remove('d-none')
   let incorrectAnswers = questionsArr[currentQuestionIndex].incorrect_answers
   let answers = [...incorrectAnswers, { text: questionsArr[currentQuestionIndex].correct_answer, correct: true }]
   let answersRandom = getRandomPosition(answers)
-  // console.log(answers);
-  console.log(questionsArr[currentQuestionIndex].incorrect_answers);
+  
+  
   buttonDiv.innerHTML = '';
   for (let i = 0; i < answersRandom.length; i++) {
-    console.log(answersRandom);
+    
     let button = document.createElement("button")
     button.setAttribute('class', 'btn btn-primary')
     button.textContent = answersRandom[i]
 
     if (answersRandom[i].correct == true) {
-      // console.log(answersRandom[i].text);
       button.textContent = answersRandom[i].text
       button.dataset.correct = true
     }
-    // console.log(answersRandom[i].text);
+    
     button.addEventListener('click', selectAnswer);
    
     buttonDiv.appendChild(button)
@@ -188,6 +185,7 @@ cardText.classList.remove('d-none')
 };
 const getRandomPosition = (randomOptions) => {
   return randomOptions.sort(() => Math.random() - 0.5);
+
 };
 
 
@@ -207,19 +205,11 @@ const selectAnswer = (e) => {
   const button = e.target 
   if (button.dataset.correct == 'true'){
     score++
-    console.log(score);
+  
   }
   Array.from(buttonDiv.children).forEach(button => {
     setStatusClass(button)
   });
-  
-  
-  console.log("question", questionsArr[currentQuestionIndex].question);
-  console.log("index", currentQuestionIndex);
-  console.log(questionsArr.length);
-
-
-
   if(questionsArr.length > currentQuestionIndex +1){
     nextBnt.classList.remove('d-none')
   }else {
@@ -234,16 +224,13 @@ const selectAnswer = (e) => {
     restartGame.classList.remove('d-none')
   }
 
-}
-
+};
 
 
 const restarQuiz = () =>{
   window.location.href="index.html"
 }
 
-
-//PARTE SPA
 nextBnt.addEventListener('click', ()=> {
   currentQuestionIndex+=1
   printQuestions()
@@ -261,5 +248,4 @@ const hideViews = () => {
 
 
 StartGameNavBar.addEventListener('click', printQuestions)
-// resultsNavBar.addEventListener('click', getQuestions)
 restartGame.addEventListener('click', restarQuiz)
