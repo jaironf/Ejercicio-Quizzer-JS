@@ -23,4 +23,15 @@ img{
     background-color: red;
 }
 
+#next-button{
+    display: flex;
+    width: 200px;
+    border-radius: 50px;
+}
+
+
+
+#button-div{
+
+}
 
