@@ -161,7 +161,7 @@ cardText.classList.remove('d-none')
   cardText.innerText = '';
 
   cardText.innerText = questionsArr[currentQuestionIndex].question
-  console.log(questionsArr[currentQuestionIndex].question);
+ 
 
   let incorrectAnswers = questionsArr[currentQuestionIndex].incorrect_answers
   let answers = [...incorrectAnswers, { text: questionsArr[currentQuestionIndex].correct_answer, correct: true }]
@@ -213,11 +213,16 @@ const selectAnswer = (e) => {
     setStatusClass(button)
   });
   
-  currentQuestionIndex += 1
-  nextBnt.addEventListener('click', printQuestions)
-  if(questionsArr.length > currentQuestionIndex + 1){
+  
+  console.log("question", questionsArr[currentQuestionIndex].question);
+  console.log("index", currentQuestionIndex);
+  console.log(questionsArr.length);
+
+
+
+  if(questionsArr.length > currentQuestionIndex +1){
     nextBnt.classList.remove('d-none')
-  }else if(questionsArr.length = currentQuestionIndex){
+  }else {
     
     questionDiv.classList.add('d-none')
     cardText.classList.add('d-none')
@@ -225,9 +230,10 @@ const selectAnswer = (e) => {
   
     StartGameNavBar.classList.remove('d-none')
     resultsGame.classList.remove('d-none')
-    resultsGame.innerText = `Score: ${score}/9`
+    resultsGame.innerText = `Score: ${score}/10`
     restartGame.classList.remove('d-none')
   }
+
 }
 
 
@@ -238,7 +244,10 @@ const restarQuiz = () =>{
 
 
 //PARTE SPA
-
+nextBnt.addEventListener('click', ()=> {
+  currentQuestionIndex+=1
+  printQuestions()
+})
 
 const hideViews = () => {
   homeDiv.classList.add('d-none')
