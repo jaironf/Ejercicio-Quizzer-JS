@@ -225,10 +225,11 @@ const selectAnswer = (e) => {
   
     StartGameNavBar.classList.remove('d-none')
     resultsGame.classList.remove('d-none')
-    resultsGame.innerText = `Score: ${score}/10`
+    resultsGame.innerText = `Score: ${score}/9`
     restartGame.classList.remove('d-none')
   }
 }
+
 
 
 const restarQuiz = () =>{
